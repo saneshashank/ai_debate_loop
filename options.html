@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Debate Loop — Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+
+  <h1>AI Debate Loop — Settings</h1>
+
+  <!-- Active Providers -->
+  <section class="settings-section">
+    <h2>Active Providers</h2>
+    <p class="description">Select which AI providers participate in the debate. At least 2 must be active.</p>
+    <div class="provider-list">
+      <label class="provider-checkbox-label">
+        <input type="checkbox" name="provider" value="chatgpt">
+        <span class="provider-name provider-name--chatgpt">ChatGPT</span>
+        <span style="color:var(--color-muted);font-size:12px">(chatgpt.com / chat.openai.com)</span>
+      </label>
+      <label class="provider-checkbox-label">
+        <input type="checkbox" name="provider" value="claude">
+        <span class="provider-name provider-name--claude">Claude</span>
+        <span style="color:var(--color-muted);font-size:12px">(claude.ai)</span>
+      </label>
+      <label class="provider-checkbox-label">
+        <input type="checkbox" name="provider" value="gemini">
+        <span class="provider-name provider-name--gemini">Gemini</span>
+        <span style="color:var(--color-muted);font-size:12px">(gemini.google.com)</span>
+      </label>
+    </div>
+    <p id="provider-error">At least 2 providers must be active.</p>
+  </section>
+
+  <!-- Debate Rounds -->
+  <section class="settings-section">
+    <h2>Debate Rounds</h2>
+    <div class="rounds-list">
+      <label class="round-option">
+        <input type="radio" name="rounds" value="1">
+        <div class="round-option-text">
+          <strong>1 round</strong>
+          <small>Query all models once, then the decision model synthesizes a final answer. No critique step.</small>
+        </div>
+      </label>
+      <label class="round-option">
+        <input type="radio" name="rounds" value="2">
+        <div class="round-option-text">
+          <strong>2 rounds (default)</strong>
+          <small>One initial response round, then one critique round where models review each other's answers.</small>
+        </div>
+      </label>
+      <label class="round-option">
+        <input type="radio" name="rounds" value="3">
+        <div class="round-option-text">
+          <strong>3 rounds</strong>
+          <small>Two critique rounds for deeper refinement and more thorough stress-testing.</small>
+        </div>
+      </label>
+      <label class="round-option">
+        <input type="radio" name="rounds" value="custom">
+        <div class="round-option-text">
+          <strong>Custom</strong>
+          <small>Set any number of rounds from 1 to 20.</small>
+        </div>
+      </label>
+    </div>
+    <div class="custom-rounds-row">
+      <label for="custom-rounds" style="font-size:12px;color:var(--color-muted)">Number of rounds:</label>
+      <input type="number" id="custom-rounds" min="1" max="20" value="4" disabled>
+    </div>
+  </section>
+
+  <!-- Default Task Type -->
+  <section class="settings-section">
+    <h2>Default Task Type</h2>
+    <p class="description">The task type pre-selected in the popup.</p>
+    <select id="default-task-type">
+      <option value="research">Research</option>
+      <option value="coding">Coding</option>
+      <option value="writing">Writing</option>
+      <option value="analysis">Analysis</option>
+    </select>
+  </section>
+
+  <!-- Decision Provider per Task Type -->
+  <section class="settings-section">
+    <h2>Decision Provider per Task Type</h2>
+    <p class="description">Choose which model synthesizes the final answer for each task type. Only active providers are available.</p>
+    <table class="decision-table">
+      <thead>
+        <tr>
+          <th>Task Type</th>
+          <th>Decision Provider</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Research</td>
+          <td><select id="decision-research" data-task="research"></select></td>
+        </tr>
+        <tr>
+          <td>Coding</td>
+          <td><select id="decision-coding" data-task="coding"></select></td>
+        </tr>
+        <tr>
+          <td>Writing</td>
+          <td><select id="decision-writing" data-task="writing"></select></td>
+        </tr>
+        <tr>
+          <td>Analysis</td>
+          <td><select id="decision-analysis" data-task="analysis"></select></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <button id="btn-save">Save Settings</button>
+  <p id="save-status"></p>
+
+  <script src="options.js"></script>
+</body>
+</html>

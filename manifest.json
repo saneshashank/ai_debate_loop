@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "AI Debate Loop",
+  "version": "1.0.0",
+  "description": "Orchestrate a multi-model critique loop across your open ChatGPT, Claude, and Gemini tabs.",
+
+  "permissions": [
+    "tabs",
+    "scripting",
+    "storage",
+    "alarms"
+  ],
+
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*"
+  ],
+
+  "background": {
+    "service_worker": "service_worker.js",
+    "type": "module"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AI Debate Loop",
+    "default_icon": {
+      "16":  "icons/icon16.svg",
+      "48":  "icons/icon48.svg",
+      "128": "icons/icon128.svg"
+    }
+  },
+
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+
+  "icons": {
+    "16":  "icons/icon16.svg",
+    "48":  "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  }
+}

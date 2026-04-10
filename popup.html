@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Debate Loop</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <span class="header-title">AI Debate Loop</span>
+    <button id="btn-settings" title="Settings" aria-label="Open settings">⚙</button>
+  </header>
+
+  <!-- Provider availability badges -->
+  <div id="provider-badges" aria-label="Provider status" role="status"></div>
+
+  <!-- Query form -->
+  <section id="form-section">
+    <textarea
+      id="query-input"
+      maxlength="4000"
+      placeholder="Enter your research query…"
+      aria-label="Research query"
+      rows="4"
+    ></textarea>
+    <div id="char-counter" aria-live="polite">0 / 4000</div>
+
+    <div class="form-row">
+      <select id="task-type" aria-label="Task type">
+        <option value="research">Research</option>
+        <option value="coding">Coding</option>
+        <option value="writing">Writing</option>
+        <option value="analysis">Analysis</option>
+      </select>
+      <button id="btn-run" disabled>Run Loop</button>
+    </div>
+  </section>
+
+  <!-- Status bar (shown during and after loop) -->
+  <div id="status-bar" role="status" aria-live="polite" hidden></div>
+
+  <!-- Results section (shown during and after loop) -->
+  <section id="results-section" hidden aria-label="Debate results">
+    <div id="rounds-container"></div>
+    <div id="final-answer-container"></div>
+    <button id="btn-abort" hidden aria-label="Abort loop">Abort</button>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>
