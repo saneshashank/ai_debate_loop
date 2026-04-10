@@ -10,6 +10,8 @@ You type a question. The extension sends it to all your open AI tabs at the same
 
 No API keys. No setup. It drives your existing browser tabs directly.
 
+**check demo video**: https://youtu.be/Tg0e03A1l6Q
+
 ---
 
 ## How it works
